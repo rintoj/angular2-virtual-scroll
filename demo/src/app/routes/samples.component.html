@@ -20,22 +20,22 @@
     </header>
     <div class="post-description">
       <h2>With <span>Single Column</span></h2>
-      <vertical-list [items]="items"></vertical-list>
+      <app-vertical-list [items]="items"></app-vertical-list>
 
       <h2>With <span>Horizontal List</span></h2>
-      <horizontal-list [items]="items"></horizontal-list>
-      
+      <app-horizontal-list [items]="items"></app-horizontal-list>
+
       <h2>With <span>RTL Horizontal List</span></h2>
-      <horizontal-list [items]="items" [rtl] = 'true'></horizontal-list>
+      <app-horizontal-list [items]="items" [rtl]="true"></app-horizontal-list>
 
       <h2>With <span>Multiple Columns</span></h2>
-      <multi-col-list [items]="items"></multi-col-list>
+      <app-multi-col-list [items]="items"></app-multi-col-list>
 
       <h2>With <span>HTML Table</span></h2>
-      <table-list [items]="items"></table-list>
+      <app-table-list [items]="items"></app-table-list>
 
       <h2>Loading in <span>Chunks</span></h2>
-      <list-with-api [items]="items"></list-with-api>
+      <app-list-with-api [items]="items"></app-list-with-api>
     </div>
   </section>
 </div>

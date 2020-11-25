@@ -9,7 +9,7 @@
   "scripts": {
     "cleanup": "rimraf dist",
     "build": "ng-packagr -p package.json",
-    "build:docs": "rimraf demo/node_modules/ngx-virtual-scroller && cd dist && copyfiles **/* ../demo/node_modules/ngx-virtual-scroller && cd .. && rimraf docs && mkdir docs && cd demo && npm run build && cd dist/demo && copyfiles **/* ../../../docs && cd ../../.. && replace \"<base href=\\\"/\\\">\" \"<base href=\\\"/ngx-virtual-scroller/\\\">\" docs/index.html",
+    "build:docs": "rimraf demo/node_modules/ngx-virtual-scroller && cd dist && copyfiles \"**/*\" ../demo/node_modules/ngx-virtual-scroller && cd .. && rimraf docs && mkdir docs && cd demo && npm run build && cd dist/demo && copyfiles \"**/*\" ../../../docs && cd ../../.. && replace \"<base href=\\\"/\\\">\" \"<base href=\\\"/ngx-virtual-scroller/\\\">\" docs/index.html",
     "build:all": "npm run build && npm run build:docs",
     "lint": "tslint src/**/*.ts",
     "debug-demo": "npm run build:all && cd demo && npm run start",
@@ -59,37 +59,36 @@
   },
   "homepage": "https://github.com/rintoj/ngx-virtual-scroller#readme",
   "peerDependencies": {
-    "@angular/core": ">=6.0.0"
+    "@angular/core": ">=10.0.0"
   },
   "dependencies": {
     "@tweenjs/tween.js": "17.4.0",
-    "@types/tween.js": "17.2.0"
+    "@types/tween.js": "17.2.0",
+    "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@angular/cli": "9.0.3",
-    "@angular/common": "9.0.2",
-    "@angular/compiler": "9.0.2",
-    "@angular/compiler-cli": "9.0.2",
-    "@angular/core": "9.0.2",
-    "@angular/forms": "9.0.2",
-    "@angular/http": "7.2.16",
-    "@angular/language-service": "9.0.2",
-    "@angular/platform-browser": "9.0.2",
-    "@angular/platform-browser-dynamic": "9.0.2",
-    "@angular/router": "9.0.2",
-    "@types/node": "13.7.6",
-    "codelyzer": "5.2.1",
-    "copyfiles": "2.2.0",
-    "core-js": "3.6.4",
-    "ng-packagr": "9.0.2",
-    "npm-check": "5.9.0",
-    "replace": "1.1.5",
+    "@angular/cli": "10.1.0",
+    "@angular/common": "10.1.0",
+    "@angular/compiler": "10.1.0",
+    "@angular/compiler-cli": "10.1.0",
+    "@angular/core": "10.1.0",
+    "@angular/forms": "10.1.0",
+    "@angular/language-service": "10.1.0",
+    "@angular/platform-browser": "10.1.0",
+    "@angular/platform-browser-dynamic": "10.1.0",
+    "@angular/router": "10.1.0",
+    "@types/node": "14.6.4",
+    "codelyzer": "6.0.0",
+    "copyfiles": "2.3.0",
+    "core-js": "3.6.5",
+    "ng-packagr": "10.1.0",
+    "npm-check": "5.9.2",
+    "replace": "1.2.0",
     "replace-x": "1.7.2",
     "rimraf": "3.0.2",
-    "rxjs": "6.5.4",
-    "tslib": "1.11.0",
-    "tslint": "6.0.0",
-    "typescript": "3.7.5",
-    "zone.js": "0.10.2"
+    "rxjs": "6.6.3",
+    "tslint": "6.1.3",
+    "typescript": "4.0.2",
+    "zone.js": "0.11.1"
   }
 }

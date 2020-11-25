@@ -2,8 +2,8 @@ import { AppComponent } from './app.component';
 import { RouterModule, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AboutComponent } from './routes/about.component';
 import { DemoComponent } from './routes/demo.component';
@@ -18,21 +18,24 @@ import { MultiColListComponent } from './lists/multi-col-list.component';
 import { TableListComponent } from './lists/table-list.component';
 import { VerticalListComponent } from './lists/vertical-list.component';
 
-import { VirtualScrollerModule, VirtualScrollerDefaultOptions } from 'ngx-virtual-scroller';
+import {
+  VirtualScrollerModule,
+  VirtualScrollerDefaultOptions,
+} from 'ngx-virtual-scroller';
 
 const customDefaultOptions = {
-	scrollThrottlingTime: 0,
-	scrollDebounceTime: 0,
-	scrollAnimationTime: 750,
-	checkResizeInterval: 1000,
-	resizeBypassRefreshThreshold: 5,
-	modifyOverflowStyleOfParentScroll: true,
-	stripedTable: false
+  scrollThrottlingTime: 0,
+  scrollDebounceTime: 0,
+  scrollAnimationTime: 750,
+  checkResizeInterval: 1000,
+  resizeBypassRefreshThreshold: 5,
+  modifyOverflowStyleOfParentScroll: true,
+  stripedTable: false,
 };
 
-//export function defaultOptionsFactory(): VirtualScrollerDefaultOptions {
-//	return customDefaultOptions;
-//}
+// export function defaultOptionsFactory(): VirtualScrollerDefaultOptions {
+// 	return customDefaultOptions;
+// }
 
 @NgModule({
   declarations: [
@@ -49,36 +52,35 @@ const customDefaultOptions = {
     HorizontalListComponent,
   ],
   imports: [
-    RouterModule.forRoot(
-      [
-        { path: 'demo', component: DemoComponent },
-        { path: 'about', component: AboutComponent },
-        { path: 'samples', component: SamplesComponent },
-        { path: 'parentScroll', component: ParentScrollComponent },
-        { path: '**', redirectTo: '/about', pathMatch: 'full' }
-      ]
-    ),
+    RouterModule.forRoot([
+      { path: 'demo', component: DemoComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'samples', component: SamplesComponent },
+      { path: 'parentScroll', component: ParentScrollComponent },
+      { path: '**', redirectTo: '/about', pathMatch: 'full' },
+    ]),
     BrowserModule,
     FormsModule,
-    HttpModule,
-    VirtualScrollerModule
+    HttpClientModule,
+    VirtualScrollerModule,
   ],
   providers: [
     {
-		provide: 'virtual-scroller-default-options', useValue: customDefaultOptions
-	}
-	//{
-	//	'virtual-scroller-default-options', useFactory: defaultOptionsFactory
-	//}
+      provide: 'virtual-scroller-default-options',
+      useValue: customDefaultOptions,
+    },
+    // {
+    // 	'virtual-scroller-default-options', useFactory: defaultOptionsFactory
+    // }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(router: Router) {
     router.events.subscribe(() => {
       setTimeout(() => {
-        window['hljs'].initHighlighting.called = false;
-        window['hljs'].initHighlighting();
+        (window as any).hljs.initHighlighting.called = false;
+        (window as any).hljs.initHighlighting();
       }, 0);
     });
   }
