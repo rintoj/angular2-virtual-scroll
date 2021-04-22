@@ -102,7 +102,8 @@ export interface IViewport extends IPageInfo {
 		'[class.horizontal]': "horizontal",
 		'[class.vertical]': "!horizontal",
 		'[class.selfScroll]': "!parentScroll",
-		'[class.rtl]': "RTL"
+		'[class.rtl]': "RTL",
+		'[attr.tabindex]': "-1",
 	},
 	styles: [`
     :host {
